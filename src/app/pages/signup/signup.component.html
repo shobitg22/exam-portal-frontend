@@ -1,0 +1,115 @@
+<div class="bootstrap-wrapper">
+  <div class="container signup">
+    <div class="row">
+      <div class="col-md-6 offset-3">
+        <mat-card>
+        <div class="container text-center">
+          
+          <img
+            class="signup_logo"
+            src="../../../assets/signup.png"
+            alt="logo"
+          />
+        </div>
+        
+        <h1 class="text-center">Register</h1>
+        <!-- {{user | json}} -->
+        <form #registerForm="ngForm" (ngSubmit)="formSubmit()" novalidate>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input required [(ngModel)]="user.userName" minlength="4"  #username="ngModel" name="userName" matInput placeholder="Username" />
+          <mat-hint>Username must be unique</mat-hint>
+          </mat-form-field>
+
+          <div style="color:red;" *ngIf="!username?.valid && (username?.dirty || username?.touched)">
+            <div *ngIf="username?.errors?.['required']">
+              Username is required
+           </div>
+           <div *ngIf="username?.errors?.['minlength']">
+             Username Minimum Length is {{username?.errors?.['minlength'].requiredLength}}
+           </div> 
+         </div>
+          
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input minlength="4" required [(ngModel)]="user.password"   #password="ngModel" name="password" type="password" matInput placeholder="Password" />
+          </mat-form-field>
+
+          <div style="color:red;" *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+            <div *ngIf="password?.errors?.['required']">
+              Password is required
+           </div>
+           <div *ngIf="password?.errors?.['minlength']">
+             Password Minimum Length is {{password?.errors?.['minlength'].requiredLength}}
+           </div> 
+         </div>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Firstname</mat-label>
+            <input minlength="3" required [(ngModel)]="user.firstName"   #firstname="ngModel" name="firstName" matInput placeholder="Firstname" />
+          </mat-form-field>
+
+          <div style="color:red;" *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)">
+            <div *ngIf="firstname?.errors?.['required']">
+              First Name is required
+           </div>
+           <div *ngIf="firstname?.errors?.['minlength']">
+             First Name Minimum Length is {{firstname?.errors?.['minlength'].requiredLength}}
+           </div> 
+         </div>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Lastname</mat-label>
+            <input required [(ngModel)]="user.lastName" name="lastName"   #lastname="ngModel" matInput placeholder="Lastname" />
+          </mat-form-field>
+
+          <div style="color:red;" *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)">
+            <div *ngIf="lastname?.errors?.['required']">
+              Last Name is required
+           </div>
+         </div>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" email required [(ngModel)]="user.email" name="email"   #email="ngModel" type="email" matInput placeholder="Email" />
+          </mat-form-field>
+
+
+            <div style="color:red;" *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+            <div *ngIf="email?.errors?.['required']">
+              Email is required
+           </div>
+           <div *ngIf="email?.errors?.['email']">
+            Enter a valid emal
+           </div> 
+         </div>
+
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input  pattern="^((\\+91-?)|0)?[0-9]{10}$"  required [(ngModel)]="user.phone" name="phone"   #phone="ngModel" type="number" matInput placeholder="Phone" />
+          </mat-form-field>
+
+          <div style="color:red;" *ngIf="!phone?.valid && (phone?.dirty || phone?.touched)">
+            <div *ngIf="phone?.errors?.['required']">
+              Phone Number is required
+           </div>
+           <div *ngIf="phone?.errors?.['pattern']">
+            Please enter in a proper format
+           </div> 
+         </div>
+
+
+          <div class="container text-center">
+            <button type="submit" [disabled]="!registerForm.valid" class="mr20" mat-raised-button color="accent">Sign Up</button>
+            <button (click)="clear(registerForm)" mat-raised-button color="warn">Clear</button>
+          </div>
+
+        </form>
+      </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

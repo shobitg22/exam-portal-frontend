@@ -1,0 +1,61 @@
+<div class="bootstrap-wrapper">
+    <div class="container login">
+      <div class="row">
+        <div class="col-md-6 offset-3">
+          <mat-card>
+          <div class="container text-center">
+            
+            <img
+              class="login_logo"
+              src="../../../assets/login.jpg"
+              alt="logo"
+            />
+          </div>
+          <!-- {{loginData |json}} -->
+
+          <h1 class="text-center">Login</h1>
+          <!-- {{user | json}} -->
+          <form #loginForm="ngForm" (ngSubmit)="formSubmit()" novalidate>
+  
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input [(ngModel)]="loginData.userName" required  minlength="4" #username="ngModel" ngModel  name="userName" matInput placeholder="Username" />
+            <mat-hint>Username must be unique</mat-hint>
+            </mat-form-field>
+  
+            <div style="color:red;" *ngIf="!username?.valid && (username?.dirty || username?.touched)">
+              <div *ngIf="username?.errors?.['required']">
+                Username is required
+             </div>
+             <div *ngIf="username?.errors?.['minlength']">
+               Username Minimum Length is {{username?.errors?.['minlength'].requiredLength}}
+             </div> 
+           </div>
+
+
+           <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input [(ngModel)]="loginData.password" type="password" required #password="ngModel" ngModel minlength="4"   name="password" matInput placeholder="password" />
+          </mat-form-field>
+
+          <div style="color:red;" *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+            <div *ngIf="password?.errors?.['required']">
+              Password is required
+           </div>
+           <div *ngIf="password?.errors?.['minlength']">
+             Password Minimum Length is {{password?.errors?.['minlength'].requiredLength}}
+           </div> 
+         </div>
+
+  
+            <div class="container text-center">
+              <button type="submit"  [disabled]="!loginForm.valid" class="mr20" mat-raised-button color="accent">Login</button>
+            </div>
+  
+          </form>
+        </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  
