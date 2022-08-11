@@ -21,6 +21,21 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AuthInterceptorProvider } from './services/Auth.Interceptor';
 import { AdminComponent } from './pages/admin/admin/admin.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import {MatListModule} from '@angular/material/list';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewQuizComponent } from './pages/admin/view-quiz/view-quiz.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 
 @NgModule({
@@ -32,7 +47,19 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     LoginComponent,
     HomeComponent,
     AdminComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ProfileComponent,
+    SidebarComponent,
+    DashboardComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent,
+    ViewQuizComponent,
+    AddQuizComponent,
+    ViewQuizQuestionsComponent,
+    UpdateQuizComponent,
+    AddQuestionComponent,
+    UpdateCategoryComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +73,10 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

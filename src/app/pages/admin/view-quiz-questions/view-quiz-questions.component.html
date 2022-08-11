@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Questions of {{title}} </mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content *ngFor="let q of questions;let i = index" >
+        Q.{{i+1}}. <b>{{q.content}} </b> 
+        
+       <div class="container">
+        <div class="row"> 
+            <div class="col-md-6">
+                1. {{q.option1}}
+            </div>
+            <div class="col-md-6">
+                2. {{q.option2}}
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-md-6">
+                3. {{q.option3}}
+            </div>
+            <div class="col-md-6">
+                4. {{q.option4}}
+            </div>
+        </div>
+       </div>
+             
+            <b>Answer:</b> {{q.answer}}
+            
+            <div>
+                <button  class="mr20 mt20 mb20"  mat-stroked-button [routerLink]="'/admin/update-question/'+q.quesId+'/'+quizId" color="warn">Update</button>
+                <button  mat-stroked-button (click)="deleteQuestion(q.quesId)" color="warn">Delete</button>
+            </div>
+            
+            <mat-divider></mat-divider>   
+    </mat-card-content>
+</mat-card>
+<br>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-12">
+        <button
+        mat-raised-button
+        color="accent"  [routerLink]="'/admin/add-question/'+quizId">Add More Questions</button>
+    </div>
+    </div>  
+</div>

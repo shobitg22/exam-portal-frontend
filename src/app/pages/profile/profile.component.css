@@ -1,0 +1,12 @@
+.default_image{
+    width: 250px;
+}
+table{
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+table tr td{
+    padding: 10px 20px;
+    
+}

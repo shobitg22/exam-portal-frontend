@@ -1,0 +1,71 @@
+<mat-card>
+    <mat-card-title>Update Category</mat-card-title>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <br />
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <!-- {{categoryData | json}} -->
+            <form (ngSubmit)="formSubmit()" #updateCategory="ngForm">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input
+                  required
+                  minlength="4"
+                  name="title"
+                  matInput
+                  #title="ngModel"
+                  [(ngModel)]="categoryData.title"
+                  placeholder="title"
+                />
+              </mat-form-field>
+  
+              <div style="color:red;" *ngIf="!title?.valid && (title?.dirty || title?.touched)">
+                <div *ngIf="title?.errors?.['required']">
+                  Title is required
+               </div>
+               <div *ngIf="title?.errors?.['minlength']">
+                 Title Minimum Length is {{title?.errors?.['minlength'].requiredLength}}
+               </div> 
+             </div>
+  
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea
+                  rows="10"
+                  required
+                  minlength="10"
+                  [(ngModel)]="categoryData.description"
+                  name="description"
+                  matInput
+                  #description="ngModel"
+                  placeholder="title"
+                ></textarea>
+              </mat-form-field>
+  
+              <div style="color:red;" *ngIf="!description?.valid && (description?.dirty || description?.touched)">
+                <div *ngIf="description?.errors?.['required']">
+                  Description is required
+               </div>
+               <div *ngIf="description?.errors?.['minlength']">
+                 Description Minimum Length is {{description?.errors?.['minlength'].requiredLength}}
+               </div> 
+             </div>
+              <div class="container text-center">
+                <button
+                  type="submit"
+                  class="mr20"
+                  mat-raised-button
+                  color="accent"
+                  [disabled]="!updateCategory.valid"
+                >
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  
