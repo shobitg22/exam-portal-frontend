@@ -43,7 +43,6 @@ export class AddQuestionComponent implements OnInit {
   this.question.quiz.qid=this.quizId;
   this.questionService.createQuestion(this.question).subscribe(
     (data)=>{
-      console.log(data)
       Swal.fire({
         title: 'Success!',
         text: 'Question added Succesfully',

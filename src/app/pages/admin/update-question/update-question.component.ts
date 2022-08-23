@@ -50,7 +50,6 @@ export class UpdateQuestionComponent implements OnInit {
   formSubmit(){
       this.questionService.updateQuestion(this.question).subscribe(
         (data)=>{
-          console.log(data)
           Swal.fire({
             title: 'Success!',
             text: 'Question updated Succesfully',
@@ -58,7 +57,13 @@ export class UpdateQuestionComponent implements OnInit {
             confirmButtonText: 'Ok'
           })
         },
-        (error)=>{console.log(error)}
+        (error)=>{console.log(error)
+          Swal.fire({
+            title: 'Error!',
+            text: 'Question cannot be updated',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })}
       )
   }
 }

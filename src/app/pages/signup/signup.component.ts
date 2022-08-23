@@ -34,7 +34,6 @@ export class SignupComponent implements OnInit {
     }
     this.userService.addUser(this.user).subscribe(
       (data)=>{
-        console.log(data);
         Swal.fire({
           title: 'Success!',
           text: 'User Registered Succesfully',

@@ -35,11 +35,15 @@ categoryData:any=[
 
     this.categoryService.getAllCategories().subscribe(
       (data:any)=>{
-        this.categoryData=data;
-        console.log(data);
-      },
+        this.categoryData=data;      },
       (error)=>{
         console.log(error)
+        Swal.fire({
+          title: 'Error!',
+          text: 'Categories cannot be loaded ',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       }
     )
   }
@@ -65,12 +69,12 @@ categoryData:any=[
             this.categoryData=this.categoryData.filter((cat:any)=>cat.cid!==cid)
           },
           (error)=>{
-            Swal.fire({
-              title: 'Error!',
-              text: 'Something went wrong',
-              icon: 'error',
-              confirmButtonText: 'Ok'
-            })
+              Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
           }
         )
       }

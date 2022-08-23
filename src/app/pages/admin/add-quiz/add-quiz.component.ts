@@ -37,7 +37,6 @@ export class AddQuizComponent implements OnInit {
   formSubmit(){
     this.quizService.addQuiz(this.quiz).subscribe(
       (data)=>{
-        console.log(data);
         Swal.fire({
           title: 'Success!',
           text: 'Quiz added Succesfully',

@@ -20,10 +20,8 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
   formSubmit(){
-    console.log("form submit")
     this.categoryService.addCategory(this.categoryData).subscribe(
       (data)=>{
-        console.log(data);
         Swal.fire({
           title: 'Success!',
           text: 'Category added Succesfully',

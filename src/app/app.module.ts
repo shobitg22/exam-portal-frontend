@@ -36,6 +36,12 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
+import { SpecificQuizComponent } from './pages/user/specific-quiz/specific-quiz.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { AttemptQuizComponent } from './pages/attempt-quiz/attempt-quiz.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from "ngx-ui-loader";
 
 
 @NgModule({
@@ -59,7 +65,11 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
     UpdateQuizComponent,
     AddQuestionComponent,
     UpdateCategoryComponent,
-    UpdateQuestionComponent
+    UpdateQuestionComponent,
+    SidebarUserComponent,
+    SpecificQuizComponent,
+    InstructionsComponent,
+    AttemptQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +86,12 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
     MatSnackBarModule,
     MatListModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    })
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

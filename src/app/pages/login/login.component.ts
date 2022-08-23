@@ -23,12 +23,10 @@ export class LoginComponent implements OnInit {
   formSubmit(){
     this.loginService.genrateToken(this.loginData).subscribe(
       (data:any)=>{
-        console.log(data);
         this.loginService.login(data.jwtToken)
 
         this.loginService.getCurrentUser().subscribe(
           (user)=>{
-            console.log(user)
             this.loginService.setUser(user)
 
             if(this.loginService.getUserRole()=='ADMIN')
@@ -42,7 +40,7 @@ export class LoginComponent implements OnInit {
             {
               this.loginService.loginStatusSubject.next(true);
               //redirect to NORMAL
-              this.router.navigate(['user-dashboard'])
+              this.router.navigate(['user-dashboard/0'])
               //window.location.href="/user-dashboard";
             }
             else{

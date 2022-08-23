@@ -20,15 +20,13 @@ export class ViewQuizQuestionsComponent implements OnInit {
     this.quizId=this.route.snapshot.params['qId'];
     this.quizService.getQuizById(this.quizId).subscribe(
       (data:any)=>{
-        console.log(data)
         this.title=data.title},
       (error)=>{console.log(error)}
     
     )
 
-    this.questionService.getQuestionByQuiz(this.quizId).subscribe(
+    this.questionService.getQuestionByQuizAdmin(this.quizId).subscribe(
       (data)=>{
-        console.log(data)
         this.questions=data
       },
       (error)=>{console.log(error)}

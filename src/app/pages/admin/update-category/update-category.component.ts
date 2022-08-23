@@ -29,7 +29,6 @@ export class UpdateCategoryComponent implements OnInit {
   {
     this.categoryService.updateCategory(this.categoryData).subscribe(
       (data)=>{
-        console.log(data)
         Swal.fire({
           title: 'Success!',
           text: 'Category update Succesfully',
@@ -37,7 +36,15 @@ export class UpdateCategoryComponent implements OnInit {
           confirmButtonText: 'Ok'
         })
       },
-      (error)=>{console.log(error)}
+      (error)=>{
+        console.log(error)
+        Swal.fire({
+          title: 'Error!',
+          text: 'category cannot be updated',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
+      }
     )
   }
 }

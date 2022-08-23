@@ -48,9 +48,14 @@ export class ViewQuizComponent implements OnInit {
   ngOnInit(): void {
     this.quizService.getAllQuiz().subscribe(
       (data)=>{this.quizData=data
-      console.log(data)
       },
-      (error)=>{console.log(error)}
+      (error)=>{console.log(error)
+        Swal.fire({
+          title: 'Error!',
+          text: 'Quiz cannot be loaded',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })}
     )
   }
 
@@ -75,7 +80,13 @@ export class ViewQuizComponent implements OnInit {
             this.quizData=this.quizData.filter((quiz:any)=>quiz.qid!==qid)
           },
           (error)=>{
-            console.log(error);
+            console.log(error)
+            Swal.fire({
+              title: 'Error!',
+              text: 'Something went wrong',
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            });
           }
         )
       }

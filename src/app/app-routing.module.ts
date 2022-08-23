@@ -11,10 +11,13 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { ViewQuizComponent } from './pages/admin/view-quiz/view-quiz.component';
+import { AttemptQuizComponent } from './pages/attempt-quiz/attempt-quiz.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { SpecificQuizComponent } from './pages/user/specific-quiz/specific-quiz.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
@@ -89,8 +92,24 @@ const routes: Routes = [
   {
     path:'user-dashboard',
     component:UserDashboardComponent,
-    pathMatch:'full',
-    canActivate:[UserGuard]
+    canActivate:[UserGuard],
+    children:[
+      {
+        path:':qid',
+        component:SpecificQuizComponent
+      },
+      {
+        path:'instruction/:qid',
+        component:InstructionsComponent
+      }
+    ]
+  },
+  {
+      path:'attempt/:qid',
+      component:AttemptQuizComponent,
+      canActivate:[UserGuard],
+      pathMatch:'full'
+    
   }
 ];
 
